@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>Loan Probability Calculator</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Loan Probability Calculator</h1>
+    <form action="/predict" method="POST">
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label for="Gender">Gender</label>
+          <select class="form-control" name="Gender" id="Gender">
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label for="Married">Married</label>
+          <select class="form-control" name="Married" id="Married">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Dependents">Dependents</label>
+          <input type="text" class="form-control" id="Dependents" name="Dependents" placeholder="Enter number of dependents">
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label for="Education">Education</label>
+          <select class="form-control" name="Education" id="Education">
+            <option value="0">Graduate</option>
+            <option value="1">Not Graduate</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label for="Self_Employed">Self Employed</label>
+          <select class="form-control" name="Self_Employed" id="Self_Employed">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="ApplicantIncome">Applicant Monthly Income</label>
+          <input type="text" class="form-control" id="ApplicantIncome", name="ApplicantIncome" placeholder="Enter Applicant's Monthly Income">
+        </div>
+        <div class="form-group">
+          <label for="CoapplicantIncome">CoApplicant Monthly Income</label>
+          <input type="text" class="form-control" id="CoapplicantIncome", name="CoapplicantIncome" placeholder="Enter CoApplicant's Monthly Income">
+        </div>
+        <div class="form-group">
+          <label for="LoanAmount">Loan Amount</label>
+          <input type="text" class="form-control" id="LoanAmount" name="LoanAmount" placeholder="Enter Loan Amount">
+        </div>
+        <div class="form-group">
+          <label for="Loan_Amount_Term">Loan Amount Term (Months)</label>
+          <input type="text" class="form-control" id="Loan_Amount_Term" name="Loan_Amount_Term" placeholder="Enter Loan Amount Term in Months">
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label for="Credit_History">Credit Score Above 700</label>
+          <select class="form-control" name="Credit_History" id="Credit_History">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label for="Property_Area">Property Area</label>
+          <select class="form-control" name="Property_Area" id="Property_Area">
+            <option value="0">Rural</option>
+            <option value="1">Semi Urban</option>
+            <option value="2">Urban</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+              <input type="submit" class="btn btn-primary" value="Fetch">
+          </div>
+        </div>
+    </form>
+    <br>
+    <div class="alert alert-primary" role="alert" id="answer">
+      {{prediction}}
+    </div>
+  </div>
+</body>
